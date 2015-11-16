@@ -1,25 +1,11 @@
 package org.igniterealtime.restclient;
 
-import java.util.HashMap;
-import java.util.Map;
+import org.igniterealtime.restclient.RestClient.RestClientBuilder;
+import org.igniterealtime.restclient.entity.*;
 
 import javax.ws.rs.core.Response;
-
-import org.igniterealtime.restclient.RestClient.RestClientBuilder;
-import org.igniterealtime.restclient.entity.AuthenticationToken;
-import org.igniterealtime.restclient.entity.GroupEntities;
-import org.igniterealtime.restclient.entity.GroupEntity;
-import org.igniterealtime.restclient.entity.MUCRoomEntities;
-import org.igniterealtime.restclient.entity.MUCRoomEntity;
-import org.igniterealtime.restclient.entity.ParticipantEntities;
-import org.igniterealtime.restclient.entity.RosterEntities;
-import org.igniterealtime.restclient.entity.RosterItemEntity;
-import org.igniterealtime.restclient.entity.SessionEntities;
-import org.igniterealtime.restclient.entity.SystemProperties;
-import org.igniterealtime.restclient.entity.SystemProperty;
-import org.igniterealtime.restclient.entity.UserEntities;
-import org.igniterealtime.restclient.entity.UserEntity;
-import org.igniterealtime.restclient.entity.UserGroupsEntity;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * The Class RestApiClient.
@@ -204,6 +190,19 @@ public class RestApiClient {
 	}
 
 	/**
+	 * Deletes the owner.
+	 *
+	 * @param roomName
+	 *            the room name
+	 * @param jid
+	 *            the jid
+	 * @return the response
+	 */
+	public Response deleteOwner(String roomName, String jid) {
+		return restClient.delete("chatrooms/" + roomName + "/owners/" + jid, new HashMap<String, String>());
+	}
+
+	/**
 	 * Adds the admin.
 	 *
 	 * @param roomName
@@ -214,6 +213,19 @@ public class RestApiClient {
 	 */
 	public Response addAdmin(String roomName, String jid) {
 		return restClient.post("chatrooms/" + roomName + "/admins/" + jid, null, new HashMap<String, String>());
+	}
+
+	/**
+	 * Deletes the admin.
+	 *
+	 * @param roomName
+	 *            the room name
+	 * @param jid
+	 *            the jid
+	 * @return the response
+	 */
+	public Response deleteAdmin(String roomName, String jid) {
+		return restClient.delete("chatrooms/" + roomName + "/admins/" + jid, new HashMap<String, String>());
 	}
 
 	/**
@@ -230,6 +242,19 @@ public class RestApiClient {
 	}
 
 	/**
+	 * Deletes the member.
+	 *
+	 * @param roomName
+	 *            the room name
+	 * @param jid
+	 *            the jid
+	 * @return the response
+	 */
+	public Response deleteMember(String roomName, String jid) {
+		return restClient.delete("chatrooms/" + roomName + "/members/" + jid, new HashMap<String, String>());
+	}
+
+	/**
 	 * Adds the outcast.
 	 *
 	 * @param roomName
@@ -240,6 +265,19 @@ public class RestApiClient {
 	 */
 	public Response addOutcast(String roomName, String jid) {
 		return restClient.post("chatrooms/" + roomName + "/outcasts/" + jid, null, new HashMap<String, String>());
+	}
+
+	/**
+	 * Deletes the outcast.
+	 *
+	 * @param roomName
+	 *            the room name
+	 * @param jid
+	 *            the jid
+	 * @return the response
+	 */
+	public Response deleteOutcast(String roomName, String jid) {
+		return restClient.delete("chatrooms/" + roomName + "/outcasts/" + jid, new HashMap<String, String>());
 	}
 
 	/**
