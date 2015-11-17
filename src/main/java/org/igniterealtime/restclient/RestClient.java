@@ -1,30 +1,5 @@
 package org.igniterealtime.restclient;
 
-import java.net.URI;
-import java.security.KeyManagementException;
-import java.security.NoSuchAlgorithmException;
-import java.security.SecureRandom;
-import java.security.cert.X509Certificate;
-import java.util.Map;
-
-import javax.net.ssl.HostnameVerifier;
-import javax.net.ssl.HttpsURLConnection;
-import javax.net.ssl.SSLContext;
-import javax.net.ssl.SSLSession;
-import javax.net.ssl.TrustManager;
-import javax.net.ssl.X509TrustManager;
-import javax.ws.rs.HttpMethod;
-import javax.ws.rs.client.Client;
-import javax.ws.rs.client.ClientBuilder;
-import javax.ws.rs.client.Entity;
-import javax.ws.rs.client.WebTarget;
-import javax.ws.rs.core.HttpHeaders;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.MultivaluedHashMap;
-import javax.ws.rs.core.MultivaluedMap;
-import javax.ws.rs.core.Response;
-import javax.ws.rs.core.Response.Status;
-
 import org.glassfish.jersey.client.ClientConfig;
 import org.glassfish.jersey.client.ClientProperties;
 import org.glassfish.jersey.filter.LoggingFilter;
@@ -34,6 +9,21 @@ import org.igniterealtime.restclient.entity.AuthenticationToken;
 import org.igniterealtime.restclient.exception.ErrorResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import javax.net.ssl.*;
+import javax.ws.rs.HttpMethod;
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.Entity;
+import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.*;
+import javax.ws.rs.core.Response.Status;
+import java.net.URI;
+import java.security.KeyManagementException;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
+import java.security.cert.X509Certificate;
+import java.util.Map;
 
 /**
  * The Class RestClient.
